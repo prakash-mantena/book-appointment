@@ -1,0 +1,17 @@
+{
+  "name": "book-appointment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe firefox ./tests/*_test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "1.9.4"
+  },
+  "dependencies": {
+    "git": "^0.1.5"
+  }
+}
