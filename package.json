@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe firefox ./tests/*_test.js"
+    "test": "testcafe chrome ./tests/*_test.js --reporter html:TestReport.html"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "testcafe": "1.9.4"
   },
   "dependencies": {
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "testcafe-reporter-html": "^1.4.6"
   }
 }
