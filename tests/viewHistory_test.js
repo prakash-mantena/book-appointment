@@ -15,10 +15,12 @@ const summaryPage = new SummaryPage();
 fixture("View Appointment History").page(config.baseUrl);
 
 test("user can view list of his booked appointments", async test => {
+  // Given I login as John Doe
   loginPage.loginAsJohnDoe(test);
   await test
     // .useRole(loginAsJohnDoe)
     .click("select")
+    // When I create multiple appointments
     .click(Selector("option").filter('[value="Tokyo CURA Healthcare Center"]'))
     .typeText(makeAppointmentPage.visitDate, "20/11/2020")
     .click(makeAppointmentPage.bookAppointmentBtn)
@@ -27,6 +29,7 @@ test("user can view list of his booked appointments", async test => {
     .click(Selector("option").filter('[value="Seoul CURA Healthcare Center"]'))
     .typeText(makeAppointmentPage.visitDate, "10/03/2020")
     .click(makeAppointmentPage.bookAppointmentBtn)
+    // Then History page displays the appointment history
     .click(menuItems.menuToggle)
     .click(menuItems.historyMenuOption)
     .expect(menuItems.history.innerText)
