@@ -1,9 +1,20 @@
-import { elementWithId } from "../support/util";
+import { elementWithIdAndClassName } from "../support/util";
+import HomePage from "./homePage";
+
+const homePage = new HomePage();
 
 export default class LoginPage {
   constructor() {
-    this.userName = elementWithId("txt-username");
-    this.password = elementWithId("txt-password");
-    this.loginBtn = elementWithId("btn-login");
+    this.userName = elementWithIdAndClassName("txt-username");
+    this.password = elementWithIdAndClassName("txt-password");
+    this.loginBtn = elementWithIdAndClassName("btn-login");
+  }
+
+  async loginAsJohnDoe(test) {
+    await test
+      .click(homePage.makeAppointmentPageBtn)
+      .typeText(this.userName, "John Doe")
+      .typeText(this.password, "ThisIsNotAPassword")
+      .click(this.loginBtn);
   }
 }

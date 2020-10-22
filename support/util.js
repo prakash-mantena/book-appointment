@@ -1,5 +1,7 @@
 import { Selector as selector } from "testcafe";
 
-export const elementWithId = selector(value => {
-  return document.getElementById(value);
+export const elementWithIdAndClassName = selector(value => {
+  return (
+    document.getElementById(value) || document.getElementsByClassName(value)
+  );
 });

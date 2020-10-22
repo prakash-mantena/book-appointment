@@ -1,22 +1,24 @@
+import { Selector } from "testcafe";
 import config from "../support/config";
-import { loginAsJohnDoe } from "../support/role";
-import MakeAppointment from "../pageObjects/makeAppointment";
+import LoginPage from "../pageObjects/loginPage";
+// import { loginAsJohnDoe } from "../support/role";
+import MakeAppointmentPage from "../pageObjects/makeAppointmentPage";
 import SummaryPage from "../pageObjects/summaryPage";
 
-const makeAppointment = new MakeAppointment();
+const makeAppointmentPage = new MakeAppointmentPage();
 const summaryPage = new SummaryPage();
+const loginPage = new LoginPage();
 
 fixture("Make Appointment").page(config.baseUrl);
 
 test("check if user can book an appointment", async test => {
+  // Given I am
+  loginPage.loginAsJohnDoe(test);
   await test
-    .useRole(loginAsJohnDoe)
-    .click(makeAppointment.facility)
-    .click(
-      makeAppointment.facilityOption.withText("Tokyo CURA Healthcare Center")
-    )
-    .typeText(makeAppointment.visitDate, "20/11/2020")
-    .click(makeAppointment.bookAppointmentBtn)
+    .click("select")
+    .click(Selector("option").filter('[value="Tokyo CURA Healthcare Center"]'))
+    .typeText(makeAppointmentPage.visitDate, "20/11/2020")
+    .click(makeAppointmentPage.bookAppointmentBtn)
     .expect(summaryPage.summaryPageId.innerText)
     .contains("Appointment Confirmation");
 });

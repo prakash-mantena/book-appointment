@@ -1,7 +1,8 @@
-import { elementWithId } from "../support/util";
+import { elementWithIdAndClassName } from "../support/util";
 
 export default class SummaryPage {
   constructor() {
-    this.summaryPageId = elementWithId("summary");
+    this.summaryPageId = elementWithIdAndClassName("summary");
+    this.homePageBtn = elementWithIdAndClassName("btn btn-default");
   }
 }

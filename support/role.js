@@ -10,7 +10,7 @@ export const loginAsJohnDoe = Role(
   config.baseUrl,
   async test => {
     await test
-      .click(homePage.makeAppointmentBtn)
+      .click(homePage.makeAppointmentPageBtn)
       .typeText(loginPage.userName, "John Doe")
       .typeText(loginPage.password, "ThisIsNotAPassword")
       .click(loginPage.loginBtn);

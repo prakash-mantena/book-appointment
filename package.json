@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome ./tests/*_test.js --reporter html:TestReport.html"
+    "test": "testcafe chrome ./tests/*_test.js --reporter spec,html:TestReport.html"
   },
   "author": "",
   "license": "ISC",

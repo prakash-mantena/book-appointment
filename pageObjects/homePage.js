@@ -1,7 +1,9 @@
-import { elementWithId } from "../support/util";
+import { elementWithIdAndClassName } from "../support/util";
 
 export default class HomePage {
   constructor() {
-    this.makeAppointmentBtn = elementWithId("btn-make-appointment");
+    this.makeAppointmentPageBtn = elementWithIdAndClassName(
+      "btn-make-appointment"
+    );
   }
 }
